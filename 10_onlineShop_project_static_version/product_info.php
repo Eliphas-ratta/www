@@ -1,5 +1,5 @@
 <?php
-require_once("inc/header.php");
+require_once("inc/init.php");
 
 if (isset($_GET["id_product"])) {
    $id= $_GET["id_product"];
@@ -14,7 +14,7 @@ if (isset($_GET["id_product"])) {
 
 /* var_dump($product); */
 /* var_dump($categories); */
-
+require_once("inc/header.php");
 ?>
 
 <!-- Body content -->
@@ -34,21 +34,22 @@ if (isset($_GET["id_product"])) {
         <li class="list-group-item">Taille : <?= $product["size"]; ?></li>
         <li class="list-group-item">Prix : <?= $product["price"]; ?></li>
 
-        <form action="">
+        <form method="POST" action="cart.php">
+            <input type="hidden" name="id_product" value="<?= $product["id"]; ?>">
             <li class="list-group-item">
                 <p>Quantity :</p>
-                <select class="custom-select" id="exampleFormControlSelect1">
+                <select class="custom-select" name="quantity" id="exampleFormControlSelect1">
                 <?php  for ($i=1; $i <= $product["stock"]; $i++) { ?>
                 
                     
-                    <option value="<?php $i ?>"><?= $i ?></option>
+                    <option value="<?= $i ?>"><?= $i ?></option>
                     
               
                 <?php } ?>
                 </select>
             </li>
 
-            <input type="submit" class="btn btn-outline-secondary mt-5 w-100" disabled value="Add to cart">
+            <input type="submit" name="addToCart" class="btn btn-outline-secondary mt-5 w-100"  value="Add to cart">
 
         </form>
 

@@ -1,5 +1,5 @@
 <?php
-require_once("inc/header.php");
+require_once("inc/init.php");
 
 //////////////////////// RÉCUPÉRER LES CATÉGORIES
 
@@ -18,7 +18,7 @@ if(isset($_GET["category"])) {
 // echo '<pre>';
 // var_dump($categories);
 // echo '</pre>';
-
+require_once("inc/header.php");
 ?>
 
 <!-- Body content -->
